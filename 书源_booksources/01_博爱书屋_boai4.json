@@ -1,0 +1,39 @@
+{
+  "bookSourceName": "博爱书屋",
+  "bookSourceUrl": "https://www.boai4.com",
+  "bookSourceGroup": "网文",
+  "bookSourceType": 0,
+  "bookSourceComment": "实地验证 2026-05-31 | UTF-8 | 目录自动取全部分页(select) | 正文分页(_N.html)自动合并、已过滤广告与提示",
+  "enabled": true,
+  "enabledExplore": false,
+  "header": "{\"User-Agent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36\"}",
+  "searchUrl": "https://www.boai4.com/search/?searchkey={{key}}",
+  "ruleSearch": {
+    "bookList": "class.book-coverlist",
+    "name": "@css:h4 a@title",
+    "author": "@css:small.fs-14@text",
+    "intro": "@css:p.fs-12@text",
+    "bookUrl": "@css:h4 a@href",
+    "coverUrl": "@css:a.thumbnail@style##.*?url\\(([^)]+)\\).*##$1"
+  },
+  "ruleBookInfo": {
+    "name": "@css:meta[property='og:novel:book_name']@content",
+    "author": "@css:meta[property='og:novel:author']@content",
+    "intro": "@css:meta[property='og:description']@content",
+    "kind": "@css:meta[property='og:novel:category']@content&&@css:meta[property='og:novel:status']@content",
+    "coverUrl": "@css:meta[property='og:image']@content",
+    "lastChapter": "@css:meta[property='og:novel:latest_chapter_name']@content",
+    "tocUrl": "@css:a[rel=nofollow][href$='/1/']@href"
+  },
+  "ruleToc": {
+    "chapterList": "@css:dl.panel-chapterlist dd a",
+    "chapterName": "text",
+    "chapterUrl": "href",
+    "nextTocUrl": "@css:select#indexselect option@value"
+  },
+  "ruleContent": {
+    "content": "id.chaptercontent@html",
+    "replaceRegex": ".*提示您：.*##\n更多内容加载中[\\s\\S]*?阅读！##\n本章未完[\\s\\S]*?谢谢！##",
+    "nextContentUrl": "<js>\nvar n=java.getString('@css:#next_url@onclick');\nvar m=/'([^']*)'/.exec(n);\nvar u=m?m[1]:'';\n/_\\d+\\.html/.test(u)?u:'';\n</js>"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "bookSourceName": "69书吧(待验证)",
+  "bookSourceUrl": "https://www.69shuba.com",
+  "bookSourceGroup": "网文",
+  "bookSourceType": 0,
+  "bookSourceComment": "⚠ 未实地验证：本机出口 IP 被站点 Cloudflare『Just a moment』JS 质询拦截(403)，无法在抓取环境中校验选择器。规则基于 69shuba.com 公开通用结构编写，真机/住宅 IP 上可正常过盾。导入后若搜索或正文为空，请按页面实际结构微调 ruleSearch/ruleContent。2026-05-31",
+  "enabled": true,
+  "enabledExplore": false,
+  "header": "{\"User-Agent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36\",\"Referer\":\"https://www.69shuba.com/\"}",
+  "searchUrl": "https://www.69shuba.com/modules/article/search.php,{\"method\":\"POST\",\"body\":\"searchkey={{key}}\",\"charset\":\"utf-8\"}",
+  "ruleSearch": {
+    "bookList": "class.newbox@tag.li",
+    "name": "tag.h3@text",
+    "author": "class.labelbox@tag.span.0@text",
+    "intro": "class.review@text",
+    "bookUrl": "tag.h3@tag.a@href",
+    "coverUrl": "tag.img@src"
+  },
+  "ruleBookInfo": {
+    "name": "class.booknav2@tag.h1@text",
+    "author": "class.booknav2@tag.p.0@tag.a@text",
+    "intro": "class.navtxt@tag.p.0@text",
+    "kind": "class.booknav2@tag.p.1@text",
+    "coverUrl": "class.bookimg2@tag.img@src",
+    "tocUrl": "text.查看完整目录@href"
+  },
+  "ruleToc": {
+    "chapterList": "id.catalog@tag.li@tag.a",
+    "chapterName": "text",
+    "chapterUrl": "href"
+  },
+  "ruleContent": {
+    "content": "class.txtnav@html",
+    "replaceRegex": "^[\\s\\S]*?</h1>##\n请记住本书首发域名[\\s\\S]*##\n（本章完）[\\s\\S]*##"
+  }
+}

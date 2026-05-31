@@ -1,0 +1,35 @@
+{
+  "bookSourceName": "天人小说网(同人)",
+  "bookSourceUrl": "https://trxs.cc",
+  "bookSourceGroup": "同人",
+  "bookSourceType": 0,
+  "bookSourceComment": "实地验证 2026-05-31 | 帝国CMS GB2312 | 搜索为 POST 且关键词按 GBK 编码 | 目录在书页内一次性给全、正文单页不分页 | 站点以同人/二次创作小说为主",
+  "enabled": true,
+  "enabledExplore": false,
+  "header": "{\"User-Agent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36\"}",
+  "searchUrl": "https://trxs.cc/e/search/index.php,{\"method\":\"POST\",\"body\":\"keyboard={{key}}&show=title&classid=0\",\"charset\":\"gbk\"}",
+  "ruleSearch": {
+    "bookList": "class.bk",
+    "name": "@css:h3 a@text",
+    "author": "@css:div.booknews@ownText##作者：\\s*##",
+    "intro": "@css:.bk_right p@text",
+    "bookUrl": "@css:h3 a@href",
+    "coverUrl": "@css:.pic img@src"
+  },
+  "ruleBookInfo": {
+    "name": "tag.h1@text",
+    "author": "@css:.date a@text",
+    "intro": "@css:.infos p@text",
+    "coverUrl": "@css:.pic img@src",
+    "tocUrl": ""
+  },
+  "ruleToc": {
+    "chapterList": "@css:.book_list li a",
+    "chapterName": "text",
+    "chapterUrl": "href"
+  },
+  "ruleContent": {
+    "content": "class.read_chapterDetail@textNodes",
+    "replaceRegex": "^[^\\n]*作者：[^\\n]*\\n##"
+  }
+}
